@@ -36,6 +36,7 @@
 	},
 	"minimum-stability": "stable",
 	"require-dev": {
-		"phpspec/phpspec": "~2"
+		"phpspec/phpspec": "~2",
+		"behat/behat": "~2.5"
 	}
 }
