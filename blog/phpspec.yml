@@ -1,0 +1,8 @@
+formatter.name: pretty
+
+suites:
+  blog_suite:
+    namespace: Blog
+    src_path: app
+    spec_prefix: Spec
+    spec_path: app/tests

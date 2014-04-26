@@ -12,9 +12,11 @@
 			"app/controllers",
 			"app/models",
 			"app/database/migrations",
-			"app/database/seeds",
-			"app/tests/TestCase.php"
-		]
+			"app/database/seeds"
+		],
+		"psr-4": {
+            "Blog\\": "app/Blog/"
+        }
 	},
 	"scripts": {
 		"post-install-cmd": [
@@ -32,5 +34,8 @@
 	"config": {
 		"preferred-install": "dist"
 	},
-	"minimum-stability": "stable"
+	"minimum-stability": "stable",
+	"require-dev": {
+		"phpspec/phpspec": "~2"
+	}
 }
