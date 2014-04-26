@@ -22,6 +22,7 @@
 		"phpspec/phpspec": "~2",
 		"behat/behat": "~2.5",
 		"behat/mink": "~1.5",
-		"behat/mink-goutte-driver": "*"
+		"behat/mink-goutte-driver": "*",
+		"way/generators": "~2"
 	}
 }
