@@ -4,5 +4,5 @@ Feature: hello_world
   I want to visit the main page and see "Hello, world!"
 
 Scenario: see "Hello, world!" on the main page
-  Given I am on the page "/"
-  Then I should see: "Hello, world!"
+  Given I am on the homepage
+  Then I should see "Hello, world!"
