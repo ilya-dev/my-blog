@@ -15,7 +15,10 @@
 		],
 		"psr-4": {
             "Blog\\": "app/Blog/"
-        }
+        },
+        "files": [
+            "app/helpers.php"
+        ]
 	},
 	"require-dev": {
 		"behat/mink-extension": "~1.2",
