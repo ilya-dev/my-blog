@@ -7,6 +7,6 @@ Route::resource('posts', 'PostsController', [
 Route::get('/', 'PostsController@index');
 
 Route::resource('tags', 'TagsController', [
-    'only' => ['index'],
+    'only' => ['index', 'show'],
 ]);
 

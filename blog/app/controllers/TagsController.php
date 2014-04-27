@@ -62,7 +62,9 @@ class TagsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+        return View::make('tags.show', [
+            'tag' => $this->tags->get($id),
+        ]);
 	}
 
 	/**

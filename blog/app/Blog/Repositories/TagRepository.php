@@ -14,5 +14,17 @@ class TagRepository {
         return Tag::all();
     }
 
+    /**
+     * Fetch a tag.
+     *
+     * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
+     * @param mixed $id
+     * @return \Blog\Tag
+     */
+    public function get($id)
+    {
+        return Tag::findOrFail($id);
+    }
+
 }
 
