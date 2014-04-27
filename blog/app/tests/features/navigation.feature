@@ -7,3 +7,8 @@ Feature: navigation
     Given I am on the homepage
     When I follow "Tags"
     Then I should be on "/tags"
+
+  Scenario: navigate to the homepage
+    Given I am on "/tags"
+    When I follow "Home"
+    Then I should be on "/"
