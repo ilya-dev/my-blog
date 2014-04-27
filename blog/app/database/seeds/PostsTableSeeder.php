@@ -1,5 +1,7 @@
 <?php
 
+use Faker\Factory as Faker;
+
 class PostsTableSeeder extends Seeder {
 
     /**
@@ -9,19 +11,24 @@ class PostsTableSeeder extends Seeder {
      */
 	public function run()
     {
+        $faker = Faker::create();
+
         DB::table('posts')->truncate();
 
-        $posts =
-        [
+        $posts = [
             [
-                'title'    =>  'My First Post',
-                'content'  =>  'Very Useful Content',
-            ],
-            [
-                'title'    =>  'Another Cool Post',
-                'content'  =>  'Some Cool Content',
+                'title'   => 'My First Post',
+                'content' => 'Very Useful Content',
             ],
         ];
+
+        foreach(range(1, 50) as $element)
+        {
+            $posts[] = [
+                'title'   => $faker->sentence,
+                'content' => $faker->paragraph,
+            ];
+        }
 
         \array_map(['Blog\Post', 'create'], $posts);
 	}
