@@ -9,10 +9,21 @@ class PostsTableSeeder extends Seeder {
      */
 	public function run()
     {
-        Blog\Post::create([
-            'title'    =>  'My First Post',
-            'content'  =>  'Very Useful Content',
-        ]);
+        DB::table('posts')->truncate();
+
+        $posts =
+        [
+            [
+                'title'    =>  'My First Post',
+                'content'  =>  'Very Useful Content',
+            ],
+            [
+                'title'    =>  'Another Cool Post',
+                'content'  =>  'Some Cool Content',
+            ],
+        ];
+
+        \array_map(['Blog\Post', 'create'], $posts);
 	}
 
 }
