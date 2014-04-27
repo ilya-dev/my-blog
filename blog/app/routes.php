@@ -2,6 +2,5 @@
 
 Route::get('/', function()
 {
-	return 'Hello, world!';
+	return (new Blog\Repositories\PostRepository)->all();
 });
-
