@@ -6,3 +6,4 @@ Feature: blog_posts
   Scenario: see all blog posts
     Given I am on the homepage
     Then I should see "My First Post"
+    And I should see "Very Useful Content"
