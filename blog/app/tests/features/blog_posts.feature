@@ -14,3 +14,10 @@ Feature: blog_posts
     Then the response status code should be 200
     And I should see "Previous"
     And I should see "Next"
+
+  Scenario: read a post 
+    Given I am on "/posts/1"
+    Then the response status code should be 200
+    And I should see "My First Post"
+    And I should see "Very Useful Content"
+

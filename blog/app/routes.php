@@ -13,3 +13,11 @@ Route::get('tags', function()
 
     return View::make('tags.index')->withTags($tags);
 });
+
+Route::get('posts/{id}', function($id)
+{
+    $post = (new Blog\Repositories\PostRepository)->get($id);
+
+    return View::make('posts.show')->withPost($post);
+});
+

@@ -15,5 +15,17 @@ class PostRepository {
         return Post::paginate(5);
     }
 
+    /**
+     * Fetch a post.
+     *
+     * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
+     * @param mixed $id
+     * @return \Blog\Post
+     */
+    public function get($id)
+    {
+        return Post::findOrFail($id);
+    }
+
 }
 
