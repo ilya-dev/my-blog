@@ -23,6 +23,7 @@
 		"behat/behat": "~2.5",
 		"behat/mink": "~1.5",
 		"behat/mink-goutte-driver": "*",
-		"way/generators": "~2"
+		"way/generators": "~2",
+		"fzaninotto/faker": "~1.3"
 	}
 }
