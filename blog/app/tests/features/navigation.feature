@@ -23,3 +23,8 @@ Feature: navigation
     When I follow "My First Post"
     Then I should be on "/posts/1"
 
+  Scenario: a tag points to a page
+    Given I am on "/posts/1"
+    When I follow "programming"
+    Then I should be on "/tags/1"
+

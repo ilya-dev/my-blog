@@ -3,11 +3,11 @@
 @section('title', $post->title)
 
 @section('content')
-    <h1>{{ $post->title }}</h1>
-    <div class="content">
-        {{ $post->content }}
-    </div>
+    @include('partials.post')
     <div id="tags">
-        {{ implode(', ', array_pluck($post->tags, 'name')) }}
+        @foreach ($post->tags as $tag)
+            <a href="/tags/{{ $tag->id }}">{{ $tag->name }}</a>
+        @endforeach
     </div>
 @stop
+

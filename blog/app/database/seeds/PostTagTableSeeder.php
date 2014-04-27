@@ -18,6 +18,11 @@ class PostTagTableSeeder extends Seeder {
         $posts = Blog\Post::lists('id');
         $tags = Blog\Tag::lists('id');
 
+        DB::table('post_tag')->insert([
+            'post_id' => 1,
+            'tag_id'  => 1,
+        ]);
+
 		foreach(range(1, 50) as $index)
 		{
             DB::table('post_tag')->insert([
@@ -25,11 +30,6 @@ class PostTagTableSeeder extends Seeder {
                 'tag_id'  => $faker->randomElement($tags),
 			]);
         }
-
-        DB::table('post_tag')->insert([
-            'post_id' => 1,
-            'tag_id'  => 1,
-        ]);
 	}
 
 }
