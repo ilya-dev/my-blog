@@ -22,7 +22,7 @@ class PostsTableSeeder extends Seeder {
             ],
         ];
 
-        foreach(range(1, 50) as $element)
+        foreach (range(1, 50) as $index)
         {
             $posts[] = [
                 'title'   => $faker->sentence,

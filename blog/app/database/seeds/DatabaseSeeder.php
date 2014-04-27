@@ -11,7 +11,9 @@ class DatabaseSeeder extends Seeder {
 	{
 		Eloquent::unguard();
 
-		$this->call('PostsTableSeeder');
+        $this->call('PostsTableSeeder');
+
+        $this->call('TagsTableSeeder');
 	}
 
 }
