@@ -7,4 +7,7 @@
     <div class="content">
         {{ $post->content }}
     </div>
+    <div id="tags">
+        {{ implode(', ', array_pluck($post->tags, 'name')) }}
+    </div>
 @stop

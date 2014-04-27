@@ -1,4 +1,4 @@
-Feature:
+Feature: tags
   In order to see the tags list
   As a site visitor
   I want to visit "/tags"
@@ -8,3 +8,8 @@ Feature:
     Then the response status code should be 200
     And I should see "Tags"
     And I should see "programming"
+
+  Scenario: see all tags linked to a post
+    Given I am on "/posts/1"
+    Then I should see "programming" in the "#tags" element
+
