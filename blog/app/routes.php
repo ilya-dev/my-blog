@@ -6,10 +6,7 @@ Route::resource('posts', 'PostsController', [
 
 Route::get('/', 'PostsController@index');
 
-Route::get('tags', function()
-{
-    $tags = (new Blog\Repositories\TagRepository)->all();
-
-    return View::make('tags.index')->withTags($tags);
-});
+Route::resource('tags', 'TagsController', [
+    'only' => ['index'],
+]);
 
