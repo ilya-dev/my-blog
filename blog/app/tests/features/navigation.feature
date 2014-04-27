@@ -17,3 +17,9 @@ Feature: navigation
     Given I am on the homepage
     When I follow "Tags"
     Then I should see "Tags" in the "li.active" element
+
+  Scenario: a post title points to a page
+    Given I am on the homepage
+    When I follow "My First Post"
+    Then I should be on "/posts/1"
+
