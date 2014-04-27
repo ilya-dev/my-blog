@@ -12,7 +12,7 @@ class PostRepositorySpec extends ObjectBehavior {
 
     function it_fetches_all_posts()
     {
-        $this->all()->shouldHaveType('Illuminate\Support\Collection');
+        $this->all()->shouldHaveType('Illuminate\Pagination\Paginator');
     }
 
 }
@@ -21,9 +21,11 @@ namespace Blog;
 
 class Post {
 
-    public static function all()
+    public static function paginate()
     {
-        return new \Illuminate\Support\Collection;
+        return (new \Prophecy\Prophet)
+            ->prophesize('Illuminate\Pagination\Paginator')
+            ->reveal();
     }
 
 }
