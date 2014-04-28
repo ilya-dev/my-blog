@@ -12,4 +12,11 @@ Feature: manage_posts
     Then I should see "Some Title"
     And I should see "Some Content"
 
+  Scenario: attempt to add an empty post
+    Given I am logged in
+    And I am on "posts/create"
+    When I press "Add"
+    Then I should see "The title field is required"
+    And I should see "The content field is required"
+
 

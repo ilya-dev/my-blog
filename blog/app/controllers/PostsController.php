@@ -66,7 +66,9 @@ class PostsController extends \BaseController {
 
         if ( ! $this->validator->validate($input))
         {
-            // TODO: write the logic here
+            return Redirect::to('posts/create')
+                ->withErrors($this->validator->getErrors())
+                ->withInput();
         }
 
         $id = $this->posts->add($input);
