@@ -44,4 +44,10 @@ Feature: navigation
     Then the response status code should be 200
     And I should see "Dashboard"
 
+  Scenario: the admin dashboard can be reached using the navigation bar
+    Given I am logged in
+    And I am on the homepage
+    When I follow "Dashboard"
+    Then I should be on "dashboard"
 
+    

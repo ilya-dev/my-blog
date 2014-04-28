@@ -34,6 +34,7 @@
             @if ( ! Auth::check())
                 {{ open_li_tag('login') }}<a href="/login">Login</a></li>
             @else
+                <li><a href="/dashboard">Dashboard</a></li>
                 <li><a href="/logout">Logout</a></li>
             @endif
           </ul>
