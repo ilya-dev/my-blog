@@ -47,6 +47,11 @@ class UsersController extends \BaseController {
                 ->withErrors($this->validator->getErrors())
                 ->withInput();
         }
+
+        if (Auth::attempt($input))
+        {
+            return Redirect::to('/');
+        }
     }
 
 }

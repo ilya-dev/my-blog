@@ -12,3 +12,11 @@ Feature: authorization on the site
     And I should see "The email must be a valid email address"
     And I should see "The selected email is invalid"
 
+  Scenario: log in with valid credentials
+    Given I am on "login"
+    When I fill in "email" with "foo@bar.com"
+    When I fill in "password" with "password"
+    When I press "Get in!"
+    Then I should not see "The email must be a valid email address"
+    And I should not see "The selected email is invalid"
+
