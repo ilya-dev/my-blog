@@ -11,7 +11,12 @@ class TagRepository {
      */
     public function all()
     {
-        return Tag::with('posts')->get();
+        $tags = Tag::with('posts')->get();
+
+        return $tags->sortBy(function(Tag $tag)
+        {
+            return -1 * $tag->posts->count();
+        });
     }
 
     /**
