@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['before' => 'auth.basic'], function()
+Route::group(['before' => 'auth'], function()
 {
     Route::resource('posts', 'PostsController', [
         'except' => ['show'],
@@ -9,6 +9,11 @@ Route::group(['before' => 'auth.basic'], function()
     Route::resource('tags', 'TagsController', [
         'except' => ['index', 'show'],
     ]);
+});
+
+Route::group(['before' => 'guest'], function()
+{
+    Route::get('login', 'UsersController@login');
 });
 
 Route::resource('posts', 'PostsController', [
