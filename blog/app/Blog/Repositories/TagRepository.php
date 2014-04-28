@@ -28,7 +28,7 @@ class TagRepository {
      */
     public function get($id)
     {
-        return Tag::findOrFail($id);
+        return Tag::with('posts')->findOrFail($id);
     }
 
 }
