@@ -21,3 +21,9 @@ Feature: blog_posts
     And I should see "My First Post"
     And I should see "Very Useful Content"
 
+  Scenario: add a post
+    Given I am logged in
+    And I am on "posts/create"
+    Then the response status code should be 200
+
+    

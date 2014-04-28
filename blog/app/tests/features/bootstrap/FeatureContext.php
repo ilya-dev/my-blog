@@ -14,5 +14,19 @@ class FeatureContext extends BehatContext {
 
     use MinkDictionary;
 
+    /**
+     * @Given /^I am logged in$/
+     */
+    public function iAmLoggedIn()
+    {
+        $this->visit('login');
+
+        $this->fillField('email', 'foo@bar.com');
+
+        $this->fillField('password', 'password');
+
+        $this->pressButton('Get in!');
+    }
+
 }
 
