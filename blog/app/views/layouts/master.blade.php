@@ -31,6 +31,7 @@
           <ul class="nav navbar-nav">
             {{ open_li_tag('/') }}<a href="/">Home</a></li>
             {{ open_li_tag('tags') }}<a href="/tags">Tags</a></li>
+            {{ open_li_tag('login') }}<a href="/login">Login</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

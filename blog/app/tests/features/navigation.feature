@@ -33,3 +33,7 @@ Feature: navigation
     When I follow "programming"
     Then I should be on "/tags/1"
 
+  Scenario: the login button is displayed
+    Given I am on the homepage
+    When I follow "Login"
+    Then I should be on "login"
