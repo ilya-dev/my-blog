@@ -39,7 +39,14 @@ class UsersController extends \BaseController {
      */
     public function createSession()
     {
+        $input = Input::only(['email', 'password']);
 
+        if ( ! $this->validator->validate($input))
+        {
+            return Redirect::to('login')
+                ->withErrors($this->validator->getErrors())
+                ->withInput();
+        }
     }
 
 }
