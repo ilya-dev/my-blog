@@ -27,5 +27,16 @@ class PostRepository {
         return Post::findOrFail($id);
     }
 
+    /**
+     * Add a new post.
+     *
+     * @param array $data
+     * @return integer
+     */
+    public function add(array $data)
+    {
+        return Post::create($data)->getKey();
+    }
+
 }
 

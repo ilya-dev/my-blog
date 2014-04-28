@@ -9,6 +9,7 @@ Feature: manage_posts
     When I fill in "title" with "Some Title"
     When I fill in "content" with "Some Content"
     When I press "Add"
-    Then the url should match "/^posts\/([0-9]+)$/"
+    Then I should see "Some Title"
+    And I should see "Some Content"
 
 

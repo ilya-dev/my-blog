@@ -61,8 +61,17 @@ class PostsController extends \BaseController {
 	 * @return Response
 	 */
 	public function store()
-	{
-		//
+    {
+        $input = Input::only(['title', 'content']);
+
+        if ( ! $this->validator->validate($input))
+        {
+            // TODO: write the logic here
+        }
+
+        $id = $this->posts->add($input);
+
+        return Redirect::to('posts/'.$id);
 	}
 
 	/**
