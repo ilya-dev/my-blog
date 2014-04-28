@@ -5,13 +5,7 @@
 @section('content')
     <h1>Add a post</h1>
 
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            @foreach ($errors->all() as $error)
-                {{ $error }}
-            @endforeach
-        </div>
-    @endif
+    @include('partials.errors')
 
     {{ Form::open(['route' => 'posts.store']) }}
         <div class="form-group">
