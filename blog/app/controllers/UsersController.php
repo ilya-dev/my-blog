@@ -64,5 +64,17 @@ class UsersController extends \BaseController {
         }
     }
 
+    /**
+     * Destroy the session and redirect to the homepage.
+     *
+     * @return Response
+     */
+    public function logout()
+    {
+        Auth::logout();
+
+        return Redirect::to('login');
+    }
+
 }
 

@@ -9,6 +9,8 @@ Route::group(['before' => 'auth'], function()
     Route::resource('tags', 'TagsController', [
         'except' => ['index', 'show'],
     ]);
+
+    Route::get('logout', 'UsersController@logout');
 });
 
 Route::group(['before' => 'guest'], function()

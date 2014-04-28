@@ -36,3 +36,7 @@ Feature: authorization on the site
     Then I should see "Logout"
     Then I should not see "Login"
 
+  Scenario: it redirects you to the login page when you try to logout
+    Given I am on "logout"
+    Then I should be on "login"
+
