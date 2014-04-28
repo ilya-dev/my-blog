@@ -1,25 +1,36 @@
 <?php
 
 use Blog\Repositories\PostRepository;
+use Blog\Validators\PostValidator;
 
 class PostsController extends \BaseController {
 
     /**
      * The PostRepository instance.
      *
-     * @var Blog\Repositories\PostRepository
+     * @var PostRepository
      */
     protected $posts;
 
     /**
+     * The validator.
+     *
+     * @var PostValidator
+     */
+    protected $validator;
+
+    /**
      * The constructor.
      *
-     * @param Blog\Repositories\PostRepository $posts
+     * @param PostRepository $posts
+     * @param PostValidator $validator
      * @return PostsController
      */
-    public function __construct(PostRepository $posts)
+    public function __construct(PostRepository $posts, PostValidator $validator)
     {
         $this->posts = $posts;
+
+        $this->validator = $validator;
     }
 
 	/**
