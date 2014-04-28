@@ -31,7 +31,11 @@
           <ul class="nav navbar-nav">
             {{ open_li_tag('/') }}<a href="/">Home</a></li>
             {{ open_li_tag('tags') }}<a href="/tags">Tags</a></li>
-            {{ open_li_tag('login') }}<a href="/login">Login</a></li>
+            @if ( ! Auth::check())
+                {{ open_li_tag('login') }}<a href="/login">Login</a></li>
+            @else
+                <li><a href="/logout">Logout</a></li>
+            @endif
           </ul>
         </div><!--/.nav-collapse -->
       </div>

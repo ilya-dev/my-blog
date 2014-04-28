@@ -27,3 +27,12 @@ Feature: authorization on the site
     When I press "Get in!"
     Then I should be on "login"
     And I should see "The password is invalid"
+
+  Scenario: it displays the logout button when you're logged in
+    Given I am on "login"
+    When I fill in "email" with "foo@bar.com"
+    When I fill in "password" with "password"
+    When I press "Get in!"
+    Then I should see "Logout"
+    Then I should not see "Login"
+
