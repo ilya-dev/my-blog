@@ -52,6 +52,16 @@ class UsersController extends \BaseController {
         {
             return Redirect::to('/');
         }
+        else
+        {
+            $bag = new Illuminate\Support\MessageBag([
+                'The password is invalid.'
+            ]);
+
+            return Redirect::to('login')
+                ->withErrors($bag)
+                ->withInput();
+        }
     }
 
 }

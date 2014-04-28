@@ -20,3 +20,10 @@ Feature: authorization on the site
     Then I should not see "The email must be a valid email address"
     And I should not see "The selected email is invalid"
 
+  Scenario: attempt to log in with an invalid password
+    Given I am on "login"
+    When I fill in "email" with "foo@bar.com"
+    When I fill in "password" with "invalid password"
+    When I press "Get in!"
+    Then I should be on "login"
+    And I should see "The password is invalid"
