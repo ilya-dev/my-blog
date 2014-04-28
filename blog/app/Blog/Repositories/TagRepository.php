@@ -11,7 +11,7 @@ class TagRepository {
      */
     public function all()
     {
-        return Tag::all();
+        return Tag::with('posts')->get();
     }
 
     /**

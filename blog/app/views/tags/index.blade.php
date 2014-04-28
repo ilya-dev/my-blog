@@ -9,6 +9,7 @@
         @foreach ($tags as $tag)
             <li class="tag">
                 <a href="/tags/{{ $tag->id }}">{{ $tag->name }}</a>
+                <span class="badge">{{ $tag->posts->count() }}</span>
             </li>
         @endforeach
     </ul>
