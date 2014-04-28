@@ -28,3 +28,8 @@ Feature: navigation
     When I follow "programming"
     Then I should be on "/tags/1"
 
+  Scenario: a tag on the tags list page points to a page
+    Given I am on "/tags"
+    When I follow "programming"
+    Then I should be on "/tags/1"
+
