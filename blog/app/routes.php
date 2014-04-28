@@ -14,6 +14,10 @@ Route::group(['before' => 'auth'], function()
 Route::group(['before' => 'guest'], function()
 {
     Route::get('login', 'UsersController@login');
+
+    Route::post('create_session', 'UsersController@createSession', [
+        'before' => 'csrf',
+    ]);
 });
 
 Route::resource('posts', 'PostsController', [
