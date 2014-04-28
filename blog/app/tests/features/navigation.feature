@@ -37,3 +37,11 @@ Feature: navigation
     Given I am on the homepage
     When I follow "Login"
     Then I should be on "login"
+
+  Scenario: the admin dashboard is available for use
+    Given I am logged in
+    And I am on "dashboard"   
+    Then the response status code should be 200
+    And I should see "Dashboard"
+
+

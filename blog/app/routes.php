@@ -11,6 +11,8 @@ Route::group(['before' => 'auth'], function()
     ]);
 
     Route::get('logout', 'UsersController@logout');
+
+    Route::get('dashboard', 'HomeController@index');
 });
 
 Route::group(['before' => 'guest'], function()
