@@ -5,6 +5,8 @@
 @section('content')
     <h1>Edit "{{ $post->title }}"</h1>
 
+    @include('partials.errors')
+
     {{ Form::model($post, ['route' => ['posts.update', $post->id], 'method' => 'PUT']) }}
         <div class="form-group">
             {{ Form::label('title') }}

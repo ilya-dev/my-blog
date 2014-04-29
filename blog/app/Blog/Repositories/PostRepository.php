@@ -38,5 +38,17 @@ class PostRepository {
         return Post::create($data)->getKey();
     }
 
+    /**
+     * Update the post.
+     *
+     * @param mixed $id
+     * @param array $data
+     * @return void
+     */
+    public function update($id, array $data)
+    {
+        $this->get($id)->save($data);
+    }
+
 }
 

@@ -110,7 +110,18 @@ class PostsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$input = Input::only(['title', 'content']);
+
+        if ( ! $this->validator->validate($input))
+        {
+            return Redirect::to("posts/{$id}/edit")
+                ->withErrors($this->validator->getErrors())
+                ->withInput();
+        }
+
+        $this->posts->update($id, $input);
+
+        return Redirect::to('posts/'.$id);
 	}
 
 	/**
