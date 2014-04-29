@@ -1,6 +1,7 @@
 <?php namespace Blog\Repositories;
 
 use Blog\Tag;
+use Illuminate\Database\QueryException;
 
 class TagRepository {
 
@@ -24,11 +25,29 @@ class TagRepository {
      *
      * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
      * @param mixed $id
-     * @return \Blog\Tag
+     * @return Tag
      */
     public function get($id)
     {
         return Tag::with('posts')->findOrFail($id);
+    }
+
+    /**
+     * Add a tag.
+     *
+     * @param array $data
+     * @return integer
+     */
+    public function add(array $data)
+    {
+        try
+        {
+            return Tag::create($data)->getKey();
+        }
+        catch (QueryException $exception)
+        {
+            return Tag::whereName($data['name'])->findOrFail();
+        }
     }
 
 }

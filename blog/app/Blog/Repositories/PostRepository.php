@@ -1,6 +1,7 @@
 <?php namespace Blog\Repositories;
 
 use Blog\Post;
+use Blog\Utils\Tags;
 
 class PostRepository {
 
@@ -35,7 +36,11 @@ class PostRepository {
      */
     public function add(array $data)
     {
-        return Post::create($data)->getKey();
+        $post = Post::create($data);
+
+        $this->attachTags($post);
+
+        return $post->getKey();
     }
 
     /**
@@ -47,7 +52,35 @@ class PostRepository {
      */
     public function update($id, array $data)
     {
-        $this->get($id)->save($data);
+        $post = $this->get($id);
+
+        $this->attachTags($post);
+
+        $post->save($data);
+    }
+
+    /**
+     * Update the list of tags attached to the post.
+     *
+     * @param Post $post
+     * @return void
+     */
+    protected function attachTags(Post $post)
+    {
+        dd('I am here!');
+
+        $utils = new Tags;
+
+        $tags = new TagRepository;
+
+        foreach ($utils->extract($post->content) as $tag)
+        {
+            dd($tag);
+
+            $post->tags()->attach($repository->add([
+                'name' => $tag,
+            ]));
+        }
     }
 
 }

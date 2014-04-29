@@ -5,10 +5,9 @@ Feature:
 
   Scenario: add a post that contains a tag
     Given I am logged in
-    And I am on "posts/create"
-    When I fill in "title" with "Some Title"
-    And I fill in "content" with "This is just #awesome, my friend"
-    And I press "Add"
+    And I am on "posts/2/edit"
+    When I fill in "content" with "This is just #awesome, my friend"
+    And I press "Save the changes"
     Then I should see "awesome" in the "#tags" element
 
 
