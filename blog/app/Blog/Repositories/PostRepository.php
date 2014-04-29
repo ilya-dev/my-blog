@@ -38,7 +38,7 @@ class PostRepository {
     {
         $post = Post::create($data);
 
-        $this->attachTags($post);
+        $this->attachTags($post, $data);
 
         return $post->getKey();
     }
@@ -54,7 +54,7 @@ class PostRepository {
     {
         $post = $this->get($id);
 
-        $this->attachTags($post);
+        $this->attachTags($post, $data);
 
         $post->save($data);
     }
@@ -63,21 +63,24 @@ class PostRepository {
      * Update the list of tags attached to the post.
      *
      * @param Post $post
+     * @param array $data
      * @return void
      */
-    protected function attachTags(Post $post)
+    protected function attachTags(Post $post, array $data)
     {
-        dd('I am here!');
-
-        $utils = new Tags;
-
+        $util = new Tags;
         $tags = new TagRepository;
 
-        foreach ($utils->extract($post->content) as $tag)
-        {
-            dd($tag);
+        $saved = $post->tags->lists('name');
 
-            $post->tags()->attach($repository->add([
+        foreach ($util->extract($data['content']) as $tag)
+        {
+            if (\in_array($tag, $saved))
+            {
+                continue;
+            }
+
+            $post->tags()->attach($tags->add([
                 'name' => $tag,
             ]));
         }

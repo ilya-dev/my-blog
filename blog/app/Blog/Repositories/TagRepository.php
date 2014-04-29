@@ -46,7 +46,7 @@ class TagRepository {
         }
         catch (QueryException $exception)
         {
-            return Tag::whereName($data['name'])->findOrFail();
+            return Tag::whereName($data['name'])->firstOrFail();
         }
     }
 

@@ -10,6 +10,13 @@ class Tag extends \Eloquent {
     public $timestamps = false;
 
     /**
+     * The fillable fields.
+     *
+     * @var array
+     */
+    protected $fillable = ['name'];
+
+    /**
      * Fetch all related posts.
      *
      * @return \Illuminate\Support\Collection
