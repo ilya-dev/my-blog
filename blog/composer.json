@@ -3,7 +3,8 @@
 	"description": "The source code of my blog.",
 	"license": "MIT",
 	"require": {
-		"laravel/framework": "4.1.*"
+		"laravel/framework": "4.1.*",
+		"doctrine/dbal": "~2.4"
 	},
 	"autoload": {
 		"classmap": [
