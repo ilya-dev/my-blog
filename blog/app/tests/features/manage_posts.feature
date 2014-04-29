@@ -26,3 +26,8 @@ Feature: manage_posts
     Then I should be on "posts/1/edit"
     And the response status code should be 200
 
+  Scenario: the edit button should not be displayed if you are a guest
+    Given I am on "posts/1"
+    Then I should not see "Edit"
+
+    
