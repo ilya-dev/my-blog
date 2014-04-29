@@ -56,7 +56,10 @@ class PostRepository {
 
         $this->attachTags($post, $data);
 
-        $post->save($data);
+        $post->title   = $data['title'];
+        $post->content = $data['content'];
+
+        $post->save();
     }
 
     /**
