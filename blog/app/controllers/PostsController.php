@@ -132,7 +132,14 @@ class PostsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$post = $this->posts->get($id);
+
+        if ( ! Input::get('pretend', '1'))
+        {
+            $post->delete();
+        }
+
+        return Redirect::to('posts');
 	}
 
 }

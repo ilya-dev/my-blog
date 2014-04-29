@@ -54,3 +54,9 @@ Feature: manage_posts
     And I should see "The title field is required"
     And I should see "The content field is required"
 
+  Scenario: remove a post
+    Given I am logged in
+    And I am on "posts/1?pretend=1"
+    When I press "Remove"
+    Then I should be on "posts"
+
