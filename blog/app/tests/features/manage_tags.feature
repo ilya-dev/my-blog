@@ -10,4 +10,11 @@ Feature:
     And I press "Save the changes"
     Then I should see "awesome" in the "#tags" element
 
+  Scenario: if a tag is not in the text, it gets detached
+    Given I am logged in
+    And I am on "posts/2/edit"
+    When I fill in "content" with "No tags here, folks"
+    And I press "Save the changes"
+    Then I should not see "awesome" in the "#tags" element
+
 

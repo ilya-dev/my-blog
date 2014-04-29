@@ -74,11 +74,13 @@ class PostRepository {
         $util = new Tags;
         $tags = new TagRepository;
 
-        $saved = $post->tags->lists('name');
+        $saved = $post->tags;
 
-        foreach ($util->extract($data['content']) as $tag)
+        $new = $util->extract($data['content']);
+
+        foreach ($new as $tag)
         {
-            if (\in_array($tag, $saved))
+            if (\in_array($tag, $saved->lists('name')))
             {
                 continue;
             }
@@ -86,6 +88,18 @@ class PostRepository {
             $post->tags()->attach($tags->add([
                 'name' => $tag,
             ]));
+        }
+
+        // now detach tags
+        // I now that it should not be performed in attachTags
+        // but anyway
+
+        foreach ($saved as $tag)
+        {
+            if (false === \strpos($data['content'], '#'.$tag->name))
+            {
+                $post->tags()->detach($tag->id);
+            }
         }
     }
 
