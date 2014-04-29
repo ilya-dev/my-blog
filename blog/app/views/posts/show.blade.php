@@ -4,6 +4,11 @@
 
 @section('content')
     @include('partials.post')
+
+    @if (Auth::check())
+        <a class="btn btn-lg btn-primary" href="/posts/{{ $post->id }}/edit">Edit</a>
+    @endif
+
     <div id="tags">
         Tags:
         @foreach ($post->tags as $tag)

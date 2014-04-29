@@ -19,4 +19,10 @@ Feature: manage_posts
     Then I should see "The title field is required"
     And I should see "The content field is required"
 
+  Scenario: click the edit button on a post page
+    Given I am logged in
+    And I am on "posts/1"
+    When I follow "Edit"
+    Then I should be on "posts/1/edit"
+    And the response status code should be 200
 
