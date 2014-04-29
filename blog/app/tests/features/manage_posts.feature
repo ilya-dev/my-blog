@@ -44,3 +44,13 @@ Feature: manage_posts
     And I should see "My First Post"
     And I should see "Very Useful Content"
 
+  Scenario: leave the edit form empty and attempt to save the changes
+    Given I am logged in
+    And I am on "posts/1/edit"
+    When I fill in "title" with ""
+    And I fill in "content" with ""
+    And I press "Save the changes"
+    Then I should be on "posts/1/edit"
+    And I should see "The title field is required"
+    And I should see "The content field is required"
+

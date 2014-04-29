@@ -8,12 +8,12 @@
     {{ Form::model($post, ['route' => ['posts.update', $post->id], 'method' => 'PUT']) }}
         <div class="form-group">
             {{ Form::label('title') }}
-            {{ Form::text('title', null, ['class' => 'form-control']) }}
+            {{ Form::text('title', null, ['class' => 'form-control', 'id' => 'title']) }}
         </div>
 
         <div class="form-group">
             {{ Form::label('content') }}
-            {{ Form::textarea('content', null, ['class' => 'form-control']) }}
+            {{ Form::textarea('content', null, ['class' => 'form-control', 'id' => 'content']) }}
         </div>
 
         <div class="form-group">
