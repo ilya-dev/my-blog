@@ -97,7 +97,9 @@ class PostsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+        return View::make('posts.edit', [
+            'post' => $this->posts->get($id),
+        ]);
 	}
 
 	/**

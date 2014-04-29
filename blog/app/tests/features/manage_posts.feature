@@ -30,4 +30,9 @@ Feature: manage_posts
     Given I am on "posts/1"
     Then I should not see "Edit"
 
-    
+  Scenario: see the contents of the post you edit
+    Given I am logged in
+    And I am on "posts/1/edit"
+    Then I should see "My First Post"
+    And I should see "Very Useful Content"
+
