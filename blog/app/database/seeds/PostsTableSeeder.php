@@ -18,7 +18,7 @@ class PostsTableSeeder extends Seeder {
         $posts = [
             [
                 'title'   => 'My First Post',
-                'content' => 'Very Useful Content',
+                'content' => 'Very Useful Content #programming',
             ],
         ];
 
