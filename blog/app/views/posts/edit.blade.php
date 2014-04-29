@@ -5,7 +5,7 @@
 @section('content')
     <h1>Edit "{{ $post->title }}"</h1>
 
-    {{ Form::model($post, ['route' => 'posts.store']) }}
+    {{ Form::model($post, ['route' => ['posts.update', $post->id], 'method' => 'PUT']) }}
         <div class="form-group">
             {{ Form::label('title') }}
             {{ Form::text('title', null, ['class' => 'form-control']) }}

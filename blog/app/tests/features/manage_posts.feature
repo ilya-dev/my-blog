@@ -36,3 +36,11 @@ Feature: manage_posts
     Then I should see "My First Post"
     And I should see "Very Useful Content"
 
+  Scenario: fill in the edit form and save the changes
+    Given I am logged in
+    And I am on "posts/1/edit"
+    When I press "Save the changes"
+    Then I should be on "posts/1"
+    And I should see "My First Post"
+    And I should see "Very Useful Content"
+
